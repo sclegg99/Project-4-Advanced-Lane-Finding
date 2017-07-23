@@ -22,7 +22,25 @@ Camera calibration was performed using the python script *CameraCalibration.py* 
 7. The camera calibartion matrix and distortion coefficients are then estimated using the OpenCV routine cv2.calibrateCamera.
 8. The accuracy of the calculated camera calibration is then estimated by reprojecting the coner points onto the chessboard.
 9. Finally the calibration matrix and distoriton coefficients are saved to a pickle file.
-A totaly of twenty chessboard images were provided to the camera calibration.  Of those twenty files, five were rejected for processing due to incompatatible image sizes.  The final estimated camera calibration values were fx = 1158.7734939444706, fy = 1154.0749356989813, px = 669.6411388407582, py = 388.0784814554919 with lens distortion coefficients r1 = -0.2567800687154464, r2 = 0.04339333102260943, r3 = -0.1150366506303131, t1 = -0.0006876303026921493, t2 = 0.00012574538927438055. The mean reprojection error = 0.77856300011631 with a standard deviation of 0.2915895232436049. A montage of the original chessboard images and their images after undistortion is show in Figure 1.
+A totaly of twenty chessboard images were provided to the camera calibration.  Of those twenty files, five were rejected for processing due to incompatatible image sizes.  The final estimated camera calibration values were:
+*******************
+Camera matrix:
+ 1158.7734939444706 0.0 669.6411388407582
+ 0.0 1154.0749356989813 388.0784814554919
+ 0.0 0.0 1.0
+
+*******************
+Lens distortion coefficients:
+r1: -0.2567800687154464
+r2: 0.04339333102260943
+r3: -0.1150366506303131
+t1: -0.0006876303026921493
+t1: 0.00012574538927438055
+
+*******************
+                 Mean reprojection error: 0.77856300011631
+Standard deviation of reprojection error: 0.2915895232436049
+A montage of the original chessboard images and their images after undistortion is show in Figure 1.
 
 ![Figure 1](./Figures/checkboard_montage.png?raw=true)Figure 1: Montage of original and undistorted chessboard images.
 
