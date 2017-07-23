@@ -31,6 +31,7 @@ A montage of the original chessboard images and their images after undistortion 
 
 ![Figure1](./Figures/checkboard_montage.png?raw=true)Figure1: Montage of original and undistorted chessboard images
 
+The physical size of the chessboard squares was not provided for this exercise.  Hence the estimated focal lengths are not the actual focal length but are only relative to the assumed chessboard size of 1 unit by 1 unit.
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
