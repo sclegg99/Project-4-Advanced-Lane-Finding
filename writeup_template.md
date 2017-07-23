@@ -24,7 +24,7 @@ Camera calibration was performed using the python script *CameraCalibration.py* 
 9. Finally the calibration matrix and distoriton coefficients are saved to a pickle file.
 A totaly of twenty chessboard images were provided to the camera calibration.  Of those twenty files, five were rejected for processing due to incompatatible image sizes.  The final estimated camera calibration values were fx = 1158.7734939444706, fy = 1154.0749356989813, px = 669.6411388407582, py = 388.0784814554919 with lens distortion coefficients r1 = -0.2567800687154464, r2 = 0.04339333102260943, r3 = -0.1150366506303131, t1 = -0.0006876303026921493, t2 = 0.00012574538927438055. The mean reprojection error = 0.77856300011631 with a standard deviation of 0.2915895232436049. A montage of the original chessboard images and their images after undistortion is show in Figure 1.
 
-![Figure1](./Figures/checkboard_montage.png?raw=true)Figure1: Montage of original and undistorted chessboard images
+![Figure 1](./Figures/checkboard_montage.png?raw=true)Figure 1: Montage of original and undistorted chessboard images.
 
 The physical size of the chessboard squares was not provided for this exercise.  Hence the estimated focal lengths are not the actual focal length but are only relative to the assumed chessboard size of 1 unit by 1 unit.
 
