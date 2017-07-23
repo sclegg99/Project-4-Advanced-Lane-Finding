@@ -58,7 +58,22 @@ Figure 1: Montage of original and undistorted chessboard images.
 
 The physical size of the chessboard squares was not provided for this exercise.  Hence the estimated focal lengths are not the actual focal length but are only relative to the assumed chessboard size of 1 unit by 1 unit.
 
-## Pipeline (single images)
+## Lane Finding Pipeline
+The first step was to initialize the camera calibration data by reading for the pickle file which conatained the camera calibration matrix and distortion coeficients.  The the pipeline was executed as follows:
+1. A frame of the project video was read.
+2. The frame image was undistorted using the camera calibration data and the OpenCV routine undistort.
+3. The undistorted image was converted to a gray scale.  Several gray scale conversions were considered and the optimal choice was to seperate the image into its YCrCb channels and select on the Y channel for additional processing. (See line 173.)
+4. The Sobel X and Y gradients were calculated over the extent of the gray scale image with a kernel size of 9 and thresholds of (50, 200). (See lines 182 through 187.)
+5. The X and Y gradients were added weighting the X gradient by 2 and the Y gradient by 1. (See line 192.)
+6. Then a morphological close was performed on the weighted binary image with a default kernal size of 3.  The purpose of this step was to eliminate spurious pixels and while connecting neighboring pixels. (See lines 203 and 204.)
+7. This closed image was then warped into a birds-eye view using the OpenCV warpPerspective routine. (See line 207.)
+8. The warped image was then masked such that only the areas around the lane were visable.  The mask was dynamically adjusted to follow the radius of curvature of the lanes. (See lines 212 through 218.)
+9. The masked image was then processed to by the routine supplied by Udacity to estimage the curve that represents the left and right lanes.  The Udacity routine was modified to fit a 2nd order polynoial with forced the slope of the curve representing the lane to 0 at the bottom edge of the image.  It was reasoned that the lane line must be parallel to the direction of car travel hence the slope (dx/dy) is zero at the bottom of the warped video image. (See find_the_lanes -- lines 237 through 398.)
+10.  The [radius of curvature](https://en.wikipedia.org/wiki/Radius_of_curvature) was then calcuated for the left and right lane line curves.
+11. A polyfill was generated representing the area between the left line curve and right line curve. (See line 231.)
+12. The polyfill was then unwarped and distorted to match the original frame conditions (See lines 232 and 545.)
+13. This unwarped and distorted image was then superimposed on the original frame and displayed and saved (See lines 575 and 576.)
+14. Steps 1 through 13 were repeated until all the video frames were read and processed.
 
 ### 1. Provide an example of a distortion-corrected image.
 
