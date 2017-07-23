@@ -12,15 +12,24 @@
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
 ## Camera Calibration
-[//]: # (Image References)
+Camera calibration was performed using the python script *CameraCalibration.py* which is included in this git directory.  The routine performed the following:
+1. Read a chessboard image.
+2. Convert the image from color to gray scale.
+3. Identify the chessboard corner locations using the OpenCV routine findChessboardCorners.
+4. Further refine the estimate of the corner location using the OpenCV routine cornerSubPix.
+5. Append the corner locations to a list
+6. Repeat steps 1-5 until all the chessboard images have been processed.
+7. The camera calibartion matrix and distortion coefficients are then estimated using the OpenCV routine cv2.calibrateCamera.
+8. The accuracy of the calculated camera calibration is then estimated by reprojecting the coner points onto the chessboard.
+9. Finally the calibration matrix and distoriton coefficients are saved to a pickle file.
+A totaly of twenty chessboard images were provided to the camera calibration.  Of those twenty files, five were rejected for processing due to incompatatible image sizes.  The final estimated camera calibration values were:
+    fx = 1158.7734939444706, fy = 1154.0749356989813, px = 669.6411388407582, py = 388.0784814554919
+with lens distortion coefficients:
+r1 = -0.2567800687154464, r2 = 0.04339333102260943, r3 = -0.1150366506303131, t1 = -0.0006876303026921493, t2 = 0.00012574538927438055.
+The mean reprojection error = 0.77856300011631 with a standard deviation of 0.2915895232436049.
+A montage of the original chessboard images and their images after undistortion is show in Figure 1.
+![Figure1](./Figures/checkboard_montage.png?raw=true)Figure1: Montage of original and undistorted chessboard images
 
-[image1]: ./examples/undistort_output.png "Undistorted"
-[image2]: ./test_images/test1.jpg "Road Transformed"
-[image3]: ./examples/binary_combo_example.jpg "Binary Example"
-[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
-[video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
