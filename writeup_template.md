@@ -80,13 +80,17 @@ The first step was to initialize the camera calibration data by reading for the 
 Step 2 is illustrated in Figure 2 where a test image was undistorted using the previously calculated and stored camera calibration data.
 
 ![Figure 2](./Figures/StraightLaneUndistorted.png?test=raw)
+
 Figure 2: Undistorted image. The sample straight lines image was used to illustrate this step
 
-### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
+### 2. Steps 4 through 6 used color transforms, gradients, morphologic close and masking to create a thresholded binary image.
 
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
+The image was mapped into YCrCb color space and the Y channel was then processed with Sobel X and Y gradients.  The YCrCb space was chosen because this color mapping seemed to be less senstivite to changes in the background color of the road surface.  I also explored the use of contrast limited adaptive histogram equalization (CLAHE) to improve the gradient selection.  However, CLAHE did not improve the line selection.  Therefore, CLAHE was not used.  Examples of the X and Y gradients are shown in Figures 3 and 4.
 
-![alt text][image3]
+![Figure 3](./Figures/SobelXNoCLAHE.png?test=raw)
+![Figure 4](./Figures/SobelYNoCLAHE.png?test=raw)
+
+Figures 3 and 4: Examples of Sobel X and Y gradients applied to sample images
 
 ### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
