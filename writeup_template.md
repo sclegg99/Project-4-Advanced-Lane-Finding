@@ -23,11 +23,11 @@ Camera calibration was performed using the python script *CameraCalibration.py* 
 8. The accuracy of the calculated camera calibration is then estimated by reprojecting the coner points onto the chessboard.
 9. Finally the calibration matrix and distoriton coefficients are saved to a pickle file.
 A totaly of twenty chessboard images were provided to the camera calibration.  Of those twenty files, five were rejected for processing due to incompatatible image sizes.  The final estimated camera calibration values were:
-*******************
+
 Camera matrix:
- 1158.7734939444706 0.0 669.6411388407582
- 0.0 1154.0749356989813 388.0784814554919
- 0.0 0.0 1.0
+| 1158.7734939444706 | 0.0 | 669.6411388407582 |
+| 0.0 | 1154.0749356989813 | 388.0784814554919 |
+| 0.0 | 0.0 | 1.0 |
 
 *******************
 Lens distortion coefficients:
