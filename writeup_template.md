@@ -32,6 +32,12 @@ Camera matrix is
 |    0.0             | 1154.0749356989813 | 388.0784814554919 |
 |    0.0             |    0.0             |   1.0             |
 
+| Command | Description |
+| --- | --- |
+| git status | List all new or modified files |
+| git diff | Show file differences that haven't been staged |
+
+
 Lens distortion coefficients:
 r1: -0.2567800687154464
 r2: 0.04339333102260943
