@@ -12,7 +12,7 @@
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
 ## Camera Calibration
-Camera calibration was performed using the python script *CameraCalibration.py* which is included in this git directory.  The routine performed the following:
+Camera calibration was performed using the python script [[*CameraCalibration.py*|CameraCalibration.py]]. The routine performed the following:
 1. Read a chessboard image.
 2. Convert the image from color to gray scale.
 3. Identify the chessboard corner locations using the OpenCV routine findChessboardCorners.
@@ -35,7 +35,7 @@ Camera matrix is
 
 Lens distortion coefficients are
 
-| coefficient | value |
+| Coefficient | Value |
 | :---: | :---: |
 | r1 |-0.2567800687154464 |
 | r2 | 0.04339333102260943 |
