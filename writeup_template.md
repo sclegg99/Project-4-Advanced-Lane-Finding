@@ -26,6 +26,7 @@ A totaly of twenty chessboard images were provided to the camera calibration.  O
 
 Camera matrix:
 | 1158.7734939444706 | 0.0 | 669.6411388407582 |
+------------------------------------------------
 | 0.0 | 1154.0749356989813 | 388.0784814554919 |
 | 0.0 | 0.0 | 1.0 |
 
