@@ -95,6 +95,12 @@ Figure 3: Sobel X gradients applied to sample images. Kernel was 9 and threshold
 
 Figure 4: Sobel Y gradients applied to sample images. Kernel was 9 and thresholds were (50, 200)
 
+The reult of combining the X and Y gradients and mophologic close are illustrated in Figure 5.
+
+![Figure 5](./Figures/ExampleBinaryImage.png?test=raw)
+
+Figure 5: Illustration of operating on the frame (a) to obtain the sum of the gradients (b) and then the result of the mophologic close (c).
+
 ### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
 The code for my perspective transform includes a function called `warper()`, which appears in lines 1 through 8 in the file `example.py` (output_images/examples/example.py) (or, for example, in the 3rd code cell of the IPython notebook).  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
