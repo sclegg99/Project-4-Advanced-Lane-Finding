@@ -52,7 +52,9 @@ Reprojection estimates are
 
 A montage of the original chessboard images and their images after undistortion is show in Figure 1.
 
-![Figure 1: Montage of original and undistorted chessboard images.](./Figures/checkboard_montage.png)
+![Figure 1](./Figures/checkboard_montage.png)
+
+Figure 1: Montage of original and undistorted chessboard images.
 
 The physical size of the chessboard squares was not provided for this exercise.  Hence the estimated focal lengths are not the actual focal length but are only relative to the assumed chessboard size of 1 unit by 1 unit.
 
