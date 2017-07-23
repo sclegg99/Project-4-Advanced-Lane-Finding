@@ -34,6 +34,7 @@ Camera matrix is
 
 
 Lens distortion coefficients are
+
 | coefficient | value |
 | :---: | :---: |
 | r1 |-0.2567800687154464 |
@@ -44,7 +45,7 @@ Lens distortion coefficients are
 
 Reprojection estimates are
 
-| Error | Value |
+|  |  |
 | :---: | :---: |
 | Mean | 0.77856300011631 |
 | Standard Deviation | 0.2915895232436049 |
