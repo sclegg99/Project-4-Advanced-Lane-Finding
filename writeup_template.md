@@ -28,6 +28,7 @@ with lens distortion coefficients:
 r1 = -0.2567800687154464, r2 = 0.04339333102260943, r3 = -0.1150366506303131, t1 = -0.0006876303026921493, t2 = 0.00012574538927438055.
 The mean reprojection error = 0.77856300011631 with a standard deviation of 0.2915895232436049.
 A montage of the original chessboard images and their images after undistortion is show in Figure 1.
+
 ![Figure1](./Figures/checkboard_montage.png?raw=true)Figure1: Montage of original and undistorted chessboard images
 
 
