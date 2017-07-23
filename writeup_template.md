@@ -52,7 +52,7 @@ Reprojection estimates are
 
 A montage of the original chessboard images and their images after undistortion is show in Figure 1.
 
-![Figure 1](./Figures/checkboard_montage.png)
+![Figure 1](./Figures/checkboard_montage.png?test=raw)
 
 Figure 1: Montage of original and undistorted chessboard images.
 
@@ -75,10 +75,12 @@ The first step was to initialize the camera calibration data by reading for the 
 13. This unwarped and distorted image was then superimposed on the original frame and displayed and saved (See lines 575 and 576.)
 14. Steps 1 through 13 were repeated until all the video frames were read and processed.
 
-### 1. Provide an example of a distortion-corrected image.
+### 1. Distortion-corrected image.
 
-To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
-![alt text][image2]
+Step 2 is illustrated in Figure 2 where a test image was undistorted using the previously calculated and stored camera calibration data.
+
+![Figure 2](./Figures/StraightLaneUndistorted.png?test=raw)
+Figure 2: Undistorted image. The sample straight lines image was used to illustrate this step
 
 ### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
