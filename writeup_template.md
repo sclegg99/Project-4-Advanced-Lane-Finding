@@ -88,9 +88,12 @@ Figure 2: Undistorted image. The sample straight lines image was used to illustr
 The image was mapped into YCrCb color space and the Y channel was then processed with Sobel X and Y gradients.  The YCrCb space was chosen because this color mapping seemed to be less senstivite to changes in the background color of the road surface.  I also explored the use of contrast limited adaptive histogram equalization (CLAHE) to improve the gradient selection.  However, CLAHE did not improve the line selection.  Therefore, CLAHE was not used.  Examples of the X and Y gradients are shown in Figures 3 and 4.
 
 ![Figure 3](./Figures/SobelXNoCLAHE.png?test=raw)
+
+Figure 3: Sobel X gradients applied to sample images. Kernel was 9 and thresholds were (50, 200)
+
 ![Figure 4](./Figures/SobelYNoCLAHE.png?test=raw)
 
-Figures 3 and 4: Examples of Sobel X and Y gradients applied to sample images
+Figure 4: Sobel Y gradients applied to sample images. Kernel was 9 and thresholds were (50, 200)
 
 ### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
