@@ -101,21 +101,22 @@ The reult of combining the X and Y gradients and mophologic close are illustrate
 
 Figure 5: Illustration of operating on the frame (a) to obtain the sum of the gradients (b) and then the result of the mophologic close (c).
 
-### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
+### 3. Perspective transform to obtain a birds-eye view.
 
-The code for my perspective transform includes a function called `warper()`, which appears in lines 1 through 8 in the file `example.py` (output_images/examples/example.py) (or, for example, in the 3rd code cell of the IPython notebook).  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
+A perspective transform was performed to warp the image into a birds-eye view.  The warping was performed using the OpenCV function warpPerspective which is invoked on line 207.  The straight line images were used to define the source (src) and destination (dst) points.
+```
+src = np.float32([[972.296, 613.839],
+                      [697.561, 442.204],
+                      [626.414, 442.204],
+                      [372.814, 613.839]])
 
-```python
-src = np.float32(
-    [[(img_size[0] / 2) - 55, img_size[1] / 2 + 100],
-    [((img_size[0] / 6) - 10), img_size[1]],
-    [(img_size[0] * 5 / 6) + 60, img_size[1]],
-    [(img_size[0] / 2 + 55), img_size[1] / 2 + 100]])
-dst = np.float32(
-    [[(img_size[0] / 4), 0],
-    [(img_size[0] / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), 0]])
+offset_x = (image_shape[0]-137)/2
+offset_y = image_shape[1]-300
+
+dst = np.float32([[116+offset_x,286+offset_y],
+                      [114+offset_x,  0+offset_y],
+                      [  2+offset_x,  0+offset_y],
+                      [  0+offset_x,286+offset_y]])
 ```
 
 This resulted in the following source and destination points:
