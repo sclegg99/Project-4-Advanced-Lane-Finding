@@ -141,15 +141,23 @@ Figure 7: Illustration of the left and right lane line fits.
 
 ### 5. Calculation of the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-The formula for calculating the [radius of curvature](https://en.wikipedia.org/wiki/Radius_of_curvature) (function curvature lines 421-422).  The calcuated radius of curvature is a parametric curve, hence the radius varies along the arc of the lane line.  Therefore, to obtain a single value that would represent the radius the parametric values returned by the function curvature was averaged over the length of the line. `
+The formula for calculating the [radius of curvature](https://en.wikipedia.org/wiki/Radius_of_curvature) (function curvature lines 421-422).  The calcuated radius of curvature is a parametric curve, hence the radius varies along the arc of the lane line.  Therefore, to obtain a single value that would represent the radius the parametric values returned by the function curvature was averaged over the length of the line.  Finally, the left and right lane radii are averged to obtain the steering radius.
 
-### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
+The position of the car relative to the center of the lane is calculated at line 560. The value is calcuated by first obtaining the distance of the camera to the left and right lines then calculating the difference of those distances.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+### 6. Plotting the lane back down to the road surface.
 
-![alt text][image6]
+The estimated position of the lane was projected onto the frame as follows.  First the curves representing the average fits for the left and right lines were plotted in the birds-eye view space and then a polyfill between the two lines was performed.  This step was performed in plot_lane (lines 419-435).
 
----
+Next the image of the polyfilled region was projected from the birds-eye view space to the undistorted image space using the OpenCV routine warpPerspective (see line 232).  The inverse mapping function (Minv) taking the view from the dst (birds-eye view) to the src (undistorted image) was used (see get_transform lines 60-63).
+
+One last step is required to complete the plotting of the estimated lane position on to the camera image.  The last step required is to distort the lane image to match the camera distortion.  This step was perfomred distort function (lines 158-167).
+
+Finally the lane image was superimposed upon the video frame along with text describing the lane radius of curvature and car position with respect to the lane center. An example of this final displayed value is illustrated in Figure 8.
+
+![Figure 8](./Figures/FinalImageExample.png?test=raw)
+
+Figure 8: Illustration of the estimated lane curvature and position overlaid upon the input video frame.
 
 ## Pipeline (video)
 
