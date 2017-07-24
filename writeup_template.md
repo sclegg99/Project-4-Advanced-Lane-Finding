@@ -119,21 +119,27 @@ dst = np.float32([[116+offset_x,286+offset_y],
                       [  0+offset_x,286+offset_y]])
 ```
 
-The warped image is subsequently masked to remove spurous pixels.  Figure 6 illustrates the process of going from the gradient image to the warped image to the final masked image.
+The warped image is subsequently masked to remove spurous pixels.  Figure 6 illustrates the process of going from the gradient image to the warped image to the final masked image.  The masking operation dynamically used the prior estimate of the lane position to construct the area to mask out.
 
 ![Figure 6](./Figures/WarpedMasked.png?test=raw)
 
 Figure 6: Illustration of gradient image (a) transfomred to a birds-eye view (b) which is subsequelty masked (c)
 
-### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
+### 4. Lane-line pixels and fitting their positions with a polynomial
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+The basic moving window code provided by Udacity was used to identify the lane pixel positions for the left and right lane lines.  The left and right set of pixels were fit to a 2nd order polynominal.  The fit was constrained such that the slope (dx/dy) at the bottom of the frame is 0.  The rational for constraining the slope to 0 is the assumption that the lanes are parallel to the forward motion of the car.  The function representing the curve can be found on lines 417-418.
+
+The ouptput of the fit was a set of polynimal coefficients for the left and right lane lines.  A rolling average over the last nine frames of the left and right lane lines polynomial fits was then used to calcuate the radius of curvature R of the left and right lane lines.  The rolling average served to minimize the effect of noisy fit values.
+
+In addition to using a rolling average to minimize the impact of noisy fit values, two other checks on the fit values were imposed.  One, the number of pixels to fit had to exceed 100.  If the number of pixels for either the left or right lane dropped below 100, then the values from the previous fit were used for the frame currently being processed.  Similarly, if the lane width deviated from the expected lane witdh (3.1m) by more than 5%, then the fit for the left and right lane lines was rejected and the fit for the previous frame was used for the current frame.
+
+The fit results for a sample frame are illustrated in Figure 7.  This figure shows area between the left and right lane line fits in green superimposed over the unmasked gradient image.
 
 ![alt text][image5]
 
-### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
+### 5. Calculation of the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+The formula for calculating the [radius of curvature](https://en.wikipedia.org/wiki/Radius_of_curvature) (function curvature lines 421-422).  The calcuated radius of curvature is a parametric curve, hence the radius varies along the arc of the lane line.  Therefore, to obtain a single value that would represent the radius the parametric values returned by the function curvature was averaged over the length of the line. `
 
 ### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
