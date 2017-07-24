@@ -133,7 +133,7 @@ The ouptput of the fit was a set of polynimal coefficients for the left and righ
 
 In addition to using a rolling average to minimize the impact of noisy fit values, two other checks on the fit values were imposed.  One, the number of pixels to fit had to exceed 100.  If the number of pixels for either the left or right lane dropped below 100, then the values from the previous fit were used for the frame currently being processed.  Similarly, if the lane width deviated from the expected lane witdh (3.1m) by more than 5%, then the fit for the left and right lane lines was rejected and the fit for the previous frame was used for the current frame.
 
-The fit results for a sample frame are illustrated in Figure 7.  This figure shows area between the left and right lane line fits in green superimposed over the unmasked gradient image.
+The fit results for a sample frame are illustrated in Figure 7.  This figure shows area between the left and right lane line fits in green superimposed over the unmasked gradient image.  It should be noted that only the pixels in the lower half of the gradient image are used in the fitting routine becuase the perspective transform tends to blur (smear) the pixels that far into the horizon (the top half of perspective image). 
 
 ![Figure 7](./Figures/FittingResults.png?test=raw)
 
