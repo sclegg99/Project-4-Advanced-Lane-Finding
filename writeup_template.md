@@ -11,6 +11,8 @@
 * Warp the detected lane boundaries back onto the original image.
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
+---
+
 ## Camera Calibration
 Camera calibration was performed using the python script [*CameraCalibration.py*](./CameraCalibration.py). The routine performed the following:
 1. Read a chessboard image.
@@ -57,6 +59,8 @@ A montage of the original chessboard images and their images after undistortion 
 Figure 1: Montage of original and undistorted chessboard images.
 
 The physical size of the chessboard squares was not provided for this exercise.  Hence the estimated focal lengths are not the actual focal length but are only relative to the assumed chessboard size of 1 unit by 1 unit.
+
+---
 
 ## Lane Finding Pipeline
 The first step was to initialize the camera calibration data by reading for the pickle file which conatained the camera calibration matrix and distortion coeficients.  The the pipeline was executed as follows:
@@ -159,11 +163,13 @@ Finally the lane image was superimposed upon the video frame along with text des
 
 Figure 8: Illustration of the estimated lane curvature and position overlaid upon the input video frame.
 
+---
+
 ## Pipeline (video)
 
-### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
+### 1. Final video output.
 
-Here's a [link to my video result](./project_video.mp4)
+The project video was processed and saved according to the steps outlined above.  The [final result](./lane_finding_video) can be viewed to confirm how successful the proposed pipeline determined the lane line locations.
 
 ---
 
