@@ -119,18 +119,11 @@ dst = np.float32([[116+offset_x,286+offset_y],
                       [  0+offset_x,286+offset_y]])
 ```
 
-This resulted in the following source and destination points:
+The warped image is subsequently masked to remove spurous pixels.  Figure 6 illustrates the process of going from the gradient image to the warped image to the final masked image.
 
-| Source        | Destination   | 
-|:-------------:|:-------------:| 
-| 585, 460      | 320, 0        | 
-| 203, 720      | 320, 720      |
-| 1127, 720     | 960, 720      |
-| 695, 460      | 960, 0        |
+![Figure 6](./Figures/WarpedMasked.png?test=raw)
 
-I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
-
-![alt text][image4]
+Figure 6: Illustration of gradient image (a) transfomred to a birds-eye view (b) which is subsequelty masked (c)
 
 ### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
