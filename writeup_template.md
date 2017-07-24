@@ -135,7 +135,9 @@ In addition to using a rolling average to minimize the impact of noisy fit value
 
 The fit results for a sample frame are illustrated in Figure 7.  This figure shows area between the left and right lane line fits in green superimposed over the unmasked gradient image.
 
-![alt text][image5]
+![Figure 7](./Figures/FittingResults.png?test=raw)
+
+Figure 7: Illustration of the left and right lane line fits.
 
 ### 5. Calculation of the radius of curvature of the lane and the position of the vehicle with respect to center.
 
