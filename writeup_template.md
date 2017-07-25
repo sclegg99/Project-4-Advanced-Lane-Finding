@@ -169,7 +169,7 @@ Figure 8: Illustration of the estimated lane curvature and position overlaid upo
 
 ### 1. Final video output.
 
-The project video was processed and saved according to the steps outlined above.  The [final result](./lane_finding_video) can be viewed to confirm how successful the proposed pipeline determined the lane line locations.
+The project video was processed and saved according to the steps outlined above.  The [final result](./lane_finding_video.mp4) can be viewed to confirm how successful the proposed pipeline determined the lane line locations.
 
 ---
 
